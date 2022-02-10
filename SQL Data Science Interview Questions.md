@@ -190,7 +190,7 @@ A VIEW does not require any storage in a database because it does not exist phys
 ### What is a subquery? what are the types?
 A subquery, or nested query, is a query placed within another SQL query. 
 
-**Scalar Subqueries**
+**1. Scalar Subqueries**
 When a subquery returns a single value, or exactly one row and exactly one column, we call it a scalar subquery. This type of subquery is frequently used in the WHERE clause to filter the results of the main query.
 
 id| name | gallery_id | price
@@ -218,7 +218,7 @@ Gift |	3200 |	5840
 Violin Lessons |	6700 |	5840
 Curiosity |	9800 | 5840
 
-**Multi row Subueries**
+**2. Multi row Subueries**
 If your subquery returns more than one row, it can be referred to as a multiple-row subquery. Note that this subquery type includes (1) subqueries that return one column with multiple rows (i.e. a list of values) and (2) subqueries that return multiple columns with multiple rows (i.e. tables).
 
 Subqueries that return one column and multiple rows are often included in the WHERE clause to filter the results of the main query. In this case, they are usually used with operators like IN, NOT IN, ANY, ALL, EXISTS, or NOT EXISTS that allow users to compare a particular value with the values in the list returned by the subquery.
@@ -231,7 +231,7 @@ WHERE id NOT IN (SELECT id
                  
 *The inner query will return a list of all manager IDs. Then the outer query filters only those sales agents who are not in the managers list and calculates an average agency fee paid to these agents. The query returns a single value – the average agency fee paid to non-managers ($1885).*
 
-**Correlated Subqueries**
+**3. Correlated Subqueries**
 SQL subqueries where the inner query relies on information obtained from the outer query. These are correlated subqueries. Because of the interdependence between the main query and the inner query.
 
 Correlated subqueries are commonly used in the SELECT, WHERE, and FROM statements.
@@ -244,3 +244,22 @@ If we want to calculate the  number of paintings found in each of our galleries,
   WHERE g.id = p.gallery_id) total_paintings
 FROM galleries g;
 
+Here, the subquery returns a scalar value with the total number of paintings in the corresponding gallery. The main query displays this information together with the city where that art gallery is located.
+
+city| total_paintings 
+--- | --- 
+London |	2
+New York |	2
+Munich |	1
+
+here the inner query depends on the outer query. We pull the gallery ID from the galleries table, which is in the outer query. In other words, you cannot run the inner query as an independent query – it will just throw an error.
+
+Note also that, in this case, you could use JOIN instead of a subquery and get the same result:
+
+  - SELECT g.city, count(p.name) AS total_paintings
+FROM galleries g
+JOIN paintings p
+ON g.id = p.gallery_id
+GROUP BY g.city;
+
+### Subquery vs Join
