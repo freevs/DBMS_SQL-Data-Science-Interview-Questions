@@ -69,3 +69,31 @@ UNION | UNION ALL
 --- | --- 
 It combines the result set from multiple tables and returns distinct records into a single result set |It combines the result set from multiple tables and returns all records into a single result set.
 Its performance is slow because it takes time to find and then remove duplicate records | Its performance is fast because it does not eliminate the duplicate rows
+
+### 7. What are constraints?
+Constraints are used to specify the rules concerning data in the table. It can be applied for single or multiple fields in an SQL table during the creation of the table or after creating using the ALTER TABLE command. The constraints are:
+
+NOT NULL - Restricts NULL value from being inserted into a column.
+
+CHECK - Verifies that all values in a field satisfy a condition.
+
+DEFAULT - Automatically assigns a default value if no value has been specified for the field.
+
+UNIQUE - Ensures unique values to be inserted into the field.
+
+INDEX - Indexes a field providing faster retrieval of records.
+
+PRIMARY KEY - Uniquely identifies each record in a table.
+
+FOREIGN KEY - Ensures referential integrity for a record in another table.
+
+### 8. Common clauses in SQL
+**WHERE** clause in SQL is used to filter records that are necessary, based on specific conditions.
+
+**ORDER BY** clause in SQL is used to sort the records based on some field(s) in ascending (ASC) or descending order (DESC).
+
+**GROUP BY** clause in SQL is used to group records with identical data and can be used in conjunction with some aggregation functions to produce summarized results from the database.
+
+**HAVING** clause in SQL is used to filter records in combination with the GROUP BY clause. It is different from WHERE, since the WHERE clause cannot filter aggregated records.
+
+### 9. 
