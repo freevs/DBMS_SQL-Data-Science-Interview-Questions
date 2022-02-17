@@ -1,12 +1,12 @@
-## SQL
+# SQL
 
-###  What is SQL?
+##  What is SQL?
 SQL is a standard language for accessing and manipulating databases. SQL lets you access and manipulate databases
 
-### What is a query?
+## What is a query?
 A query is a request for data or information from a database table or combination of tables. 
 
-###  Difference between SQL and MySQL
+##  Difference between SQL and MySQL
 -While SQL is a language used for operating different relational databases, MySQL boasts of being the first open-source relational database in the early 90s. 
 
 -SQL is a query language, whereas MySQL is a relational database that uses SQL to query a database.
@@ -19,7 +19,7 @@ A query is a request for data or information from a database table or combinatio
 
 -SQL follows a standard format wherein the basic syntax and commands used for DBMS and RDBMS remain pretty much the same, whereas MySQL receives frequent updates. 
 
-###  What are Joins and types?
+##  What are Joins and types?
 A SQL Join statement is used to combine data or rows from two or more tables based on a common field between them.
 
 **INNER JOIN:** The INNER JOIN keyword selects all rows from both the tables as long as the condition satisfies. This keyword will create the result-set by combining all rows from both the tables where the condition satisfies i.e value of the common field will be same.
@@ -35,7 +35,7 @@ In the absence of a WHERE condition the CARTESIAN JOIN will behave like a CARTES
 
 **SELF JOIN:-** The SQL SELF JOIN is used to join a table to itself as if the table were two tables; temporarily renaming at least one table in the SQL statement.
 
-###  Difference between DROP, DELETE, TRUNCATE
+##  Difference between DROP, DELETE, TRUNCATE
 **TRUNCATE** 
 -It is used to remove all the records from a table. It deletes all the records from an existing table but not the table itself. The structure or schema of the table is preserved.
 
@@ -59,7 +59,7 @@ In the absence of a WHERE condition the CARTESIAN JOIN will behave like a CARTES
 
 - Unlike TRUNCATE which only deletes the data of the tables, the DROP command deletes the data of the table as well as removes the entire schema/structure of the table from the database.
 
-###  Difference between Primary and Unique Key
+##  Difference between Primary and Unique Key
 Primary Key | Unique Key                                     
 --- | --- 
 Primary key cannot have a NULL value | Unique Key can have multiple NULL values
@@ -67,13 +67,13 @@ Primary Key is used to uniquely identify a row | Unique key is used to prevent d
 A table can have only one primary key | It can have multiple unique keys.
 We cannot change the value of a primary key in a table | We can change the value of the unique key
 
-### Difference between UNION and UNION ALL
+## Difference between UNION and UNION ALL
 UNION | UNION ALL                                    
 --- | --- 
 It combines the result set from multiple tables and returns distinct records into a single result set |It combines the result set from multiple tables and returns all records into a single result set.
 Its performance is slow because it takes time to find and then remove duplicate records | Its performance is fast because it does not eliminate the duplicate rows
 
-###  What are constraints?
+##  What are constraints?
 Constraints are used to specify the rules concerning data in the table. It can be applied for single or multiple fields in an SQL table during the creation of the table or after creating using the ALTER TABLE command. The constraints are:
 
 NOT NULL - Restricts NULL value from being inserted into a column.
@@ -90,7 +90,7 @@ PRIMARY KEY - Uniquely identifies each record in a table.
 
 FOREIGN KEY - Ensures referential integrity for a record in another table.
 
-###  Common clauses in SQL
+##  Common clauses in SQL
 **WHERE** clause in SQL is used to filter records that are necessary, based on specific conditions.
 
 **ORDER BY** clause in SQL is used to sort the records based on some field(s) in ascending (ASC) or descending order (DESC).
@@ -99,7 +99,7 @@ FOREIGN KEY - Ensures referential integrity for a record in another table.
 
 **HAVING** clause in SQL is used to filter records in combination with the GROUP BY clause. It is different from WHERE, since the WHERE clause cannot filter aggregated records.
 
-###  Difference between WHERE and HAVING
+##  Difference between WHERE and HAVING
 WHERE| HAVING
 --- | ---
 WHERE Clause is used to filter the records from the table based on the specified condition. | HAVING Clause is used to filter record from the groups based on the specified condition.
@@ -110,7 +110,7 @@ WHERE Clause can be used with SELECT, UPDATE, DELETE statement. | HAVING Clause 
 WHERE Clause is used before GROUP BY Clause |	HAVING Clause is used after GROUP BY Clause
 WHERE Clause is used with single row function like UPPER, LOWER etc.| HAVING Clause is used with multiple row function like SUM, COUNT etc.
 
-### Difference between GROUP BY vs HAVING
+## Difference between GROUP BY vs HAVING
 GROUP BY| HAVING
 --- | ---
 It is used for applying some extra condition to the query. | The groupby clause is used to group the data according to particular column or row.
@@ -118,14 +118,14 @@ Having can be used without groupby clause,in aggregate function,in that case it 
 The having clause can contain aggregate functions. | 	It cannot contain aggregate functions.
 It restrict the query output by using some conditions	| It groups the output on basis of some rows or column
 
-### What are UNION, MINUS and INTERSECT commands?
+## What are UNION, MINUS and INTERSECT commands?
 The **UNION** operator combines and returns the result-set retrieved by two or more SELECT statements.
 
 **MINUS** The Minus Operator in SQL is used with two SELECT statements. The MINUS operator is used to subtract the result set obtained by first SELECT query from the result set obtained by second SELECT query. In simple words, we can say that MINUS operator will return only those rows which are unique in only first SELECT query and not those rows which are common to both first and second SELECT queries.
 
 **INTERSECT** The INTERSECT clause in SQL is used to combine two SELECT statements but the dataset returned by the INTERSECT statement will be the intersection of the data-sets of the two SELECT statements. In simple words, the INTERSECT statement will return only those rows which will be common to both of the SELECT statements.
 
-### What are the different aggregate functions?
+## What are the different aggregate functions?
 AVG() - Calculates the mean of a collection of values.
 
 COUNT() - Counts the total number of records in a specific table or view.
@@ -140,7 +140,7 @@ FIRST() - Fetches the first element in a collection of values.
 
 LAST() - Fetches the last element in a collection of values.
 
-### What are the different scalar functions??
+## What are the different scalar functions??
 LEN() - Calculates the total length of the given field (column).
 
 UCASE() - Converts a collection of string values to uppercase characters.
@@ -159,12 +159,12 @@ NOW() - Returns the current date & time.
 
 FORMAT() - Sets the format to display a collection of values
 
-### How to create empty tables with the same structure as another table?
+## How to create empty tables with the same structure as another table?
 Creating empty tables with the same structure can be done smartly by fetching the records of one table into a new table using the INTO operator while fixing a WHERE clause to be false for all records. Hence, SQL prepares the new table with a duplicate structure to accept the fetched records but since no records get fetched due to the WHERE clause in action, nothing is inserted into the new table.
 
   SELECT * INTO Students_copy FROM Students WHERE 1 = 2;
   
-### What is Pattern Matching in SQL?
+## What is Pattern Matching in SQL?
 SQL pattern matching provides for pattern search in data if you have no clue as to what that word should be. This kind of SQL query uses wildcards to match a string pattern, rather than writing the exact word. The LIKE operator is used in conjunction with SQL Wildcards to fetch the required information.
 - Using the % wildcard to perform a simple search
 - Omitting the patterns using the NOT keyword
@@ -172,13 +172,13 @@ SQL pattern matching provides for pattern search in data if you have no clue as 
 - Using the _ wildcard to match pattern at a specific position
 - Matching patterns for a specific length
 
-### What is the main disadvantage of deleting data from an existing table using the DROP TABLE command?
+## What is the main disadvantage of deleting data from an existing table using the DROP TABLE command?
 DROP TABLE command deletes complete data from the table along with removing the complete table structure too. In case our requirement entails just remove the data, then we would need to recreate the table to store data in it. In such cases, it is advised to use the TRUNCATE command.
 
-### What is an Alias in SQL?
+## What is an Alias in SQL?
 An alias is a feature of SQL that is supported by most, if not all, RDBMSs. It is a temporary name assigned to the table or table column for the purpose of a particular SQL query. In addition, aliasing can be employed as an obfuscation technique to secure the real names of database fields. A table alias is also called a correlation name.
 
-### What are views?
+## What are views?
 A view in SQL is a virtual table based on the result-set of an SQL statement. A view contains rows and columns, just like a real table. 
 
 A VIEW does not require any storage in a database because it does not exist physically. In a VIEW, we can also control user security for accessing the data from the database tables. We can allow users to get the data from the VIEW, and the user does not require permission for each table or column to fetch data.
@@ -187,7 +187,7 @@ A VIEW does not require any storage in a database because it does not exist phys
 <img width="400" height="400" src="https://s3.ap-south-1.amazonaws.com/myinterviewtrainer-domestic/public_assets/assets/000/001/017/original/SQL_View.jpg?1631025207">
 </p>
 
-### What is a subquery? what are the types?
+## What is a subquery? what are the types?
 A subquery, or nested query, is a query placed within another SQL query. 
 
 **1. Scalar Subqueries**
@@ -262,4 +262,130 @@ JOIN paintings p
 ON g.id = p.gallery_id
 GROUP BY g.city;
 
-### Subquery vs Join
+## What is a trigger?
+Trigger: A trigger is a stored procedure in database which automatically invokes whenever a special event in the database occurs. For example, a trigger can be invoked when a row is inserted into a specified table or when certain table columns are being updated.
+
+**Syntax:**
+```
+create trigger [trigger_name] 
+[before | after]  
+{insert | update | delete}  
+on [table_name]  
+[for each row]  
+[trigger_body] 
+```
+
+**Explanation of syntax:**
+
+* create trigger [trigger_name]: Creates or replaces an existing trigger with the trigger_name.
+* [before | after]: This specifies when the trigger will be executed.
+* {insert | update | delete}: This specifies the DML operation.
+* on [table_name]: This specifies the name of the table associated with the trigger.
+* [for each row]: This specifies a row-level trigger, i.e., the trigger will be executed for each row being affected.
+* [trigger_body]: This provides the operation to be performed as trigger is fired
+
+
+**BEFORE and AFTER of Trigger:**
+
+BEFORE triggers run the trigger action before the triggering statement is run.
+AFTER triggers run the trigger action after the triggering statement is run.
+
+**Example:**
+Given Student Report Database, in which student marks assessment is recorded. In such schema, create a trigger so that the total and average of specified marks is automatically inserted whenever a record is insert.
+
+Here, as trigger will invoke before record is inserted so, BEFORE Tag can be used.
+
+Suppose the database Schema –
+Fields |
+---|
+tid |
+name |
+subj1 |
+subj2 |
+subj3 |
+total |
+per |
+
+***SQL Trigger to problem statement.***
+```
+create trigger stud_marks 
+before INSERT 
+on 
+Student 
+for each row 
+set Student.total = Student.subj1 + Student.subj2 + Student.subj3, Student.per = Student.total * 60 / 100;
+```
+***Above SQL statement will create a trigger in the student database in which whenever subjects marks are entered, before inserting this data into the database, trigger will compute those two values and insert with the entered values. i.e.,***
+
+tid | name | subj1 | subj2 | subj3 | total | per
+---| --- | --- | --- | --- | --- |--- |
+100 | ABCDE | 20 |20 | 20 | 60 |36
+
+## What is Cursor?
+Cursor is a Temporary Memory or Temporary Work Station. It is Allocated by Database Server at the Time of Performing DML(Data Manipulation Language) operations on Table by User. Cursors are used to store Database Tables. There are 2 types of Cursors: Implicit Cursors, and Explicit Cursors. These are explained as following below.
+
+**Implicit Cursors:**
+Implicit Cursors are also known as Default Cursors of SQL SERVER. These Cursors are allocated by SQL SERVER when the user performs DML operations.
+
+**Explicit Cursors :**
+Explicit Cursors are Created by Users whenever the user requires them. Explicit Cursors are used for Fetching data from Table in Row-By-Row Manner.
+
+***How to create Explicit Cursor:***
+
+1. **Declare Cursor Object.**
+
+Syntax : DECLARE cursor_name CURSOR FOR SELECT * FROM table_name
+```
+DECLARE s1 CURSOR FOR SELECT * FROM studDetails
+```
+
+2. **Open Cursor Connection.**
+
+Syntax : OPEN cursor_connection
+```
+OPEN s1
+```
+
+3. **Fetch Data from cursor.**
+
+There are total 6 methods to access data from cursor. They are as follows :
+
+* FIRST is used to fetch only the first row from cursor table.
+*LAST is used to fetch only last row from cursor table.
+* NEXT is used to fetch data in forward direction from cursor table.
+* PRIOR is used to fetch data in backward direction from cursor table.
+* ABSOLUTE n is used to fetch the exact nth row from cursor table.
+* RELATIVE n is used to fetch the data in incremental way as well as decremental way.
+
+Syntax : FETCH NEXT/FIRST/LAST/PRIOR/ABSOLUTE n/RELATIVE n FROM cursor_name
+
+```
+FETCH FIRST FROM s1
+FETCH LAST FROM s1
+FETCH NEXT FROM s1
+FETCH PRIOR FROM s1
+FETCH ABSOLUTE 7 FROM s1
+FETCH RELATIVE -2 FROM s1
+```
+
+4. **Close cursor connection.**
+
+Syntax : CLOSE cursor_name
+
+```
+CLOSE s1
+```
+
+5. **Deallocate cursor memory.**
+
+Syntax : DEALLOCATE cursor_name
+```
+DEALLOCATE s1
+```
+
+
+
+
+
+
+
