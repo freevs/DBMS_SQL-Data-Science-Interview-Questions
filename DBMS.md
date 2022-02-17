@@ -1,9 +1,9 @@
 ## Introduction
 
-### 1. What is a Database?
+###  What is a Database?
 Organized collection of data so that it can be easily accessed and managed. You can organize data into tables, rows, columns, and index it to make it easier to find relevant information.
 
-### 2. What is DBMS?
+###  What is DBMS?
 -A software for storing and retrieving users’ data while considering appropriate security measures.
 
 -It consists of a group of programs which manipulate the database. 
@@ -14,17 +14,17 @@ Organized collection of data so that it can be easily accessed and managed. You 
 
 -It provides an interface between the data and the software application.
 
-### 3. What is the need for DBMS?
+###  What is the need for DBMS?
 - Creation of a database.
 - Retrieval of information from the database.
 - Updating the database.
 - Managing a database.
 
-### 4. What is File System?
+###  What is File System?
 - File based systems were an early attempt to computerize the manual system. It is also called a traditional based approach in which a decentralized approach was taken where each department stored and controlled its own data with the help of a data processing specialist.
 - The main role of a data processing specialist was to create the necessary computer file structures, and also manage the data within structures and design some application programs that create reports based on file data.
 
-### 5. Differnce between DBMS and FIle System.
+###  Differnce between DBMS and FIle System.
 Meaning | DBMS | File System 
 --- | ----- | -----
 Meaning | Collection of data, user not required to write procedures | Collection of data, user has to write the procedures for many database
@@ -37,20 +37,7 @@ Structure | The database structure is complex to design | The file system approa
 Data Models | In the database approach, 3 types of data models exist:Hierarchal data models, Network data models, Relational data models | There is no concept of data models exists.
 Examples |	Oracle, SQL Server, Sybase etc |	Cobol, C++ etc.
 
-### 6. What are the functions of DBA?
--The DBA creates the original database schema by executing a set of data deﬁnition statements in the DDL. 
- 
--The DBA carries out changes to the schema and physical organization to reﬂect the changing needs of the organization, or to alter the physical organization to improve performance.
-
--By granting different types of authorization, the database administrator can regulate which parts of the database various users can access.
-
--Periodically backing up the database, either onto tapes or onto remote servers, to prevent loss of data in case of disasters such as ﬂooding.
-
--Ensuring that enough free disk space is available for normal operations, and upgrading disk space as required.
-
--Monitoring jobs running on the database and ensuring that performance is not degraded by very expensive tasks submitted by some users.
- 
- ### 7. Database Languages
+ ###  Database Languages
  SQL commands are mainly categorized into four categories as: 
 
 1. DDL – Data Definition Language
@@ -103,10 +90,10 @@ Transactions group a set of tasks into a single execution unit. Each transaction
 
     -*SET TRANSACTION*: Specify characteristics for the transaction.
 
-### 8. What is Data Abstraction in DBMS?
+###  What is Data Abstraction in DBMS?
 Data Abstraction refers to the process of hiding irrelevant details from the user. Example: If we want to access any mail from our Gmail then we don't know where that data is physically stored i.e is the data present in India or USA or what data model has been used to store that data? We are not concerned about these things. We are only concerned with our email. So, information like these i.e. location of data and data models are irrelevant to us and in data abstraction, we do this only. Apart from the location of data and data models, there are other factors that we don't care of. We hide the unnecessary data from the user and this process of hiding unwanted data is called Data Abstraction.
 
-### 9. Levels of Data Abstraction
+###  Levels of Data Abstraction
 <p align="center">
 <img width="400" height="400" src="https://s3.ap-south-1.amazonaws.com/afteracademy-server-uploads/what-is-data-abstraction-in-dbms-and-what-are-its-three-levels-data-abstraction-levels-771e879679d76dea.jpg">
 </p>
@@ -117,24 +104,59 @@ Data Abstraction refers to the process of hiding irrelevant details from the use
 
 **Physical Level**:- As the name suggests, the Physical level tells us that where the data is actually stored i.e. it tells the actual location of the data that is being stored by the user.The Database Administrators(DBA) decide that which data should be kept at which particular disk drive, how the data has to be fragmented, where it has to be stored etc. They decide if the data has to be centralized or distributed. Though we see the data in the form of tables at view level the data here is actually stored in the form of files only. It totally depends on the DBA, how he/she manages the database at the physical level.
 
+
 ## RDBMS
 
-### 1. What is RDBMS?
+###  What is RDBMS?
 It is basically a program that allows us to create, delete, and update a relational database. Relational Database is a database system that stores and retrieves data in a tabular format organized in the form of rows and columns by maintaining data intregrity.
 
-### 2. How DBMS is stored in memory?
-**It uses B+ tree data structure allowing to efficiently store (i.e. access and update) a large sorted dictionary on a block storage device (i.e. HDD or SSD).**
-
-### 3. Degrees of relations
-
-### 4. Why keys are needed in DBMS?
+###  Why keys are needed in DBMS?
 Tables store a lot of data in them. Tables generally extends to thousands of records stored in them, unsorted and unorganised.
 
 Now to fetch any particular record from such dataset, you will have to apply some conditions, but what if there is duplicate data present and every time you try to fetch some data by applying certain condition, you get the wrong data. How many trials before you get the right data?
 
 To avoid all this, **Keys** are defined to easily identify any row of data in a table.
 
-### 5. What are the different keys in realtionship model?
+###  What is ER model?
+ER model stands for an Entity-Relationship model. It is a high-level data model. This model is used to define the data elements and relationship for a specified system.
+
+It develops a conceptual design for the database. It also develops a very simple and easy to design view of data.
+
+<p align="center">
+<img width="400" height="400" src="https://static.javatpoint.com/dbms/images/dbms-er-model-concept-diagram.png">
+</p>
+
+**Entity:**
+
+An entity may be any object, class, person or place. In the ER diagram, an entity can be represented as rectangles.
+Consider an organization as an example- student, product, employee, department etc. can be taken as an entity.
+
+**Attributes:**
+
+Attributes are the properties which define the entity type. For example, Roll_No, Name, DOB, Age, Address, Mobile_No are the attributes which defines entity type Student.
+1. Key Attribute – 
+The attribute which uniquely identifies each entity in the entity set is called key attribute.For example, Roll_No will be unique for each student.
+2. Composite Attribute – 
+An attribute composed of many other attribute is called as composite attribute. For example, Address attribute of student Entity type consists of Street, City, State, and Country.
+3. Multivalued Attribute – 
+An attribute consisting more than one value for a given entity. For example, Phone_No (can be more than one for a given student).
+4. Derived attribute -
+ These are the attributes which are not present in the whole database management system, but are derived using other attributes. For example, average age of students in a class.
+
+**Relationship Type and Relationship Set:**
+
+A relationship type represents the association between entity types. For example,‘Enrolled in’ is a relationship type that exists between entity type Student and Course. In ER diagram, relationship type is represented by a diamond and connecting the entities with lines. 
+
+<p align="center">
+<img width="700" height="300" src="https://media.geeksforgeeks.org/wp-content/uploads/Database-Management-System-ER-Model-8.png">
+</p>
+
+###  What are the degrees of relationship?
+1. One to one – When each entity in each entity set can take part only once in the relationship, the cardinality is one to one. Let us assume that a male can marry to one female and a female can marry to one male. So the relationship will be one to one. 
+2.  Many to one – When entities in one entity set can take part only once in the relationship set and entities in other entity set can take part more than once in the relationship set, cardinality is many to one. Let us assume that a student can take only one course but one course can be taken by many students. So the cardinality will be n to 1. It means that for one course there can be n students but for one student, there will be only one course. 
+3. Many to many – When entities in all entity sets can take part more than once in the relationship cardinality is many to many. Let us assume that a student can take more than one course and one course can be taken by many students. So the relationship will be many to many. 
+
+### What are the different keys in realtionship model?
 Lets take a simple student table
 
 student_id | name | phone | age                                      
@@ -180,9 +202,23 @@ In the above table we have a Score table which stores the marks scored by a stud
 
 ***Secondary or Alternative key:-*** The candidate key which are not selected as primary key are known as secondary keys or alternative keys.
 
-### 6. What is database schema? The Types of schema?
+###  What is database schema? The Types of schema?
 A schema is the set of metadata (data dictionary) used by the database, typically generated using DDL. It defines attributes of the database, such as tables, columns, and properties. A database schema is a description of the data in a database.
 
 Physical Database Schema − This schema pertains to the actual storage of data and its form of storage like files, indices, etc. It defines how the data will be stored in a secondary storage.
 
 Logical Database Schema − This schema defines all the logical constraints that need to be applied on the data stored. It defines tables, views, and integrity constraints.Here is where you have your data files, redo logs, control files etc, physical objects that reside on a O.S. and are in row state. These objects are used by logical structures to make our data make sense and readable.
+
+### what is normalization?
+Normalization is a database design technique that reduces data redundancy and eliminates undesirable characteristics like Insertion, Update and Deletion Anomalies. 
+
+Normalization rules divides larger tables into smaller tables and links them using relationships. The purpose of Normalisation in SQL is to eliminate redundant (repetitive) data and ensure data is stored logically.
+
+### What is the purpose of normalization?
+
+
+
+
+
+
+
