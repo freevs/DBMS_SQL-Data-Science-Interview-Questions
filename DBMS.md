@@ -53,7 +53,7 @@ Data Definition Language actually consists of the SQL commands that can be used 
 
     -*CREATE*: This command is used to create the database or its objects (like table, index, function, views, store procedure, and triggers).
 
-    -*DROP8: This command is used to delete objects from the database.
+    -*DROP: This command is used to delete objects from the database.
 
     -*ALTER*: This is used to alter the structure of the database.
 
@@ -63,7 +63,7 @@ Data Definition Language actually consists of the SQL commands that can be used 
 
     -*RENAME*: This is used to rename an object existing in the database.
 
-**DQL**
+**DML**
 The SQL commands that deals with the manipulation of data.
 
     -*INSERT* : It is used to insert data into a table.
