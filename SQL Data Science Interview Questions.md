@@ -70,7 +70,7 @@ We cannot change the value of a primary key in a table | We can change the value
 ## Difference between UNION and UNION ALL
 UNION | UNION ALL                                    
 --- | --- 
-It combines the result set from multiple tables and returns distinct records into a single result set |It combines the result set from multiple tables and returns all records into a single result set.
+Union extracts the rows that are being specified in the query | Union All extracts all the rows including the duplicates (repeated values) from both the queries.
 Its performance is slow because it takes time to find and then remove duplicate records | Its performance is fast because it does not eliminate the duplicate rows
 
 ##  What are constraints?
