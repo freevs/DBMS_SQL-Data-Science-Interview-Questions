@@ -28,12 +28,12 @@ A SQL Join statement is used to combine data or rows from two or more tables bas
 
 **RIGHT JOIN:** Returns all records from the right table, and the matched records from the left table
 
-**FULL JOIN:** FULL JOIN creates the result-set by combining result of both LEFT JOIN and RIGHT JOIN. The result-set will contain all the rows from both the tables. The rows for which there is no matching, the result-set will contain NULL values.
+**FULL JOIN:** Returns all records when there is a match in either left or right table
 
-**CARTESIAN/CROSS JOIN:** The CARTESIAN JOIN is also known as CROSS JOIN. In a CARTESIAN JOIN there is a join for each row of one table to every row of another table. This usually happens when the matching column or WHERE condition is not specified.
+**CARTESIAN/CROSS JOIN:** In SQL, the CROSS JOIN is used to combine each row of the first table with each row of the second table. This usually happens when the matching column or WHERE condition is not specified.
 In the absence of a WHERE condition the CARTESIAN JOIN will behave like a CARTESIAN PRODUCT . i.e., the number of rows in the result-set is the product of the number of rows of the two tables. In the presence of WHERE condition this JOIN will function like a INNER JOIN.
 
-**SELF JOIN:-** Returns all records when there is a match in either left or right table
+**SELF JOIN:-** A self join is a regular join, but the table is joined with itself.
 
 ##  Difference between DROP, DELETE, TRUNCATE
 **TRUNCATE** 
