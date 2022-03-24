@@ -22,18 +22,18 @@ A query is a request for data or information from a database table or combinatio
 ##  What are Joins and types?
 A SQL Join statement is used to combine data or rows from two or more tables based on a common field between them.
 
-**INNER JOIN:** The INNER JOIN keyword selects all rows from both the tables as long as the condition satisfies. This keyword will create the result-set by combining all rows from both the tables where the condition satisfies i.e value of the common field will be same.
+**INNER JOIN:** Returns records that have matching values in both tables
 
-**LEFT JOIN:** This join returns all the rows of the table on the left side of the join and matching rows for the table on the right side of join. The rows for which there is no matching row on right side, the result-set will contain null.
+**LEFT JOIN:** Returns all records from the left table, and the matched records from the right table
 
-**RIGHT JOIN:** RIGHT JOIN is similar to LEFT JOIN. This join returns all the rows of the table on the right side of the join and matching rows for the table on the left side of join. The rows for which there is no matching row on left side, the result-set will contain null.
+**RIGHT JOIN:** Returns all records from the right table, and the matched records from the left table
 
 **FULL JOIN:** FULL JOIN creates the result-set by combining result of both LEFT JOIN and RIGHT JOIN. The result-set will contain all the rows from both the tables. The rows for which there is no matching, the result-set will contain NULL values.
 
 **CARTESIAN/CROSS JOIN:** The CARTESIAN JOIN is also known as CROSS JOIN. In a CARTESIAN JOIN there is a join for each row of one table to every row of another table. This usually happens when the matching column or WHERE condition is not specified.
 In the absence of a WHERE condition the CARTESIAN JOIN will behave like a CARTESIAN PRODUCT . i.e., the number of rows in the result-set is the product of the number of rows of the two tables. In the presence of WHERE condition this JOIN will function like a INNER JOIN.
 
-**SELF JOIN:-** The SQL SELF JOIN is used to join a table to itself as if the table were two tables; temporarily renaming at least one table in the SQL statement.
+**SELF JOIN:-** Returns all records when there is a match in either left or right table
 
 ##  Difference between DROP, DELETE, TRUNCATE
 **TRUNCATE** 
