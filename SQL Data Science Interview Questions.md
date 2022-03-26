@@ -35,6 +35,14 @@ In the absence of a WHERE condition the CARTESIAN JOIN will behave like a CARTES
 
 **SELF JOIN:-** A self join is a regular join, but the table is joined with itself.
 
+
+## Join Vs Subquery
+
+* When you are dealing with more tables, JOIN is good.
+* When you are dealing with fewer tables, sub-queries are good.
+* When you need data for the NOT EXISTS and EXISTS conditions, you can use sub-queries.
+
+
 ##  Difference between DROP, DELETE, TRUNCATE
 **TRUNCATE** 
 -It is used to remove all the records from a table. It deletes all the records from an existing table but not the table itself. The structure or schema of the table is preserved.
@@ -189,6 +197,7 @@ A VIEW does not require any storage in a database because it does not exist phys
 
 ## What is a subquery? what are the types?
 A subquery, or nested query, is a query placed within another SQL query. 
+They can be very useful to select rows from a table with a condition that depends on the data in the same or another table. A Subquery is used to return data that will be used in the main query as a condition to further restrict the data to be retrieved. The subquery can be placed in the following SQL clauses they are WHERE clause, HAVING clause, FROM clause.
 
 **1. Scalar Subqueries**
 When a subquery returns a single value, or exactly one row and exactly one column, we call it a scalar subquery. This type of subquery is frequently used in the WHERE clause to filter the results of the main query.
