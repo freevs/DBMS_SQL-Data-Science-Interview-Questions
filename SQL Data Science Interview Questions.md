@@ -30,10 +30,24 @@ A SQL Join statement is used to combine data or rows from two or more tables bas
 
 **FULL JOIN:** Returns all records when there is a match in either left or right table
 
-**CARTESIAN/CROSS JOIN:** In SQL, the CROSS JOIN is used to combine each row of the first table with each row of the second table. This usually happens when the matching column or WHERE condition is not specified.
-In the absence of a WHERE condition the CARTESIAN JOIN will behave like a CARTESIAN PRODUCT . i.e., the number of rows in the result-set is the product of the number of rows of the two tables. In the presence of WHERE condition this JOIN will function like a INNER JOIN.
+**CARTESIAN/CROSS JOIN:** The result set will include all rows from both tables, where each row is the combination of the row in the first table with the row in the second table. In general, if each table has n and m rows respectively, the result set will have nxm rows.
+
+*If you add a WHERE clause, in case table t1 and t2 has a relationship, the CROSS JOIN works like the INNER JOIN clause as shown in the following query:*
+
+          SELECT * FROM t1
+          CROSS JOIN t2
+          WHERE t1.id = t2.id;
+
 
 **SELF JOIN:-** A self join is a regular join, but the table is joined with itself.
+The self join is often used to query hierarchical data or to compare a row with other rows within the same table. To perform a self join, you must use table aliases to not repeat the same table name twice in a single query. 
+
+## Does Mysql support FULL OUTER JOIN? If not how to perform the operaion.
+      SELECT * FROM t1
+      LEFT JOIN t2 ON t1.id = t2.id
+      UNION
+      SELECT * FROM t1
+      RIGHT JOIN t2 ON t1.id = t2.id
 
 
 ## Join Vs Subquery
@@ -75,11 +89,44 @@ Primary Key is used to uniquely identify a row | Unique key is used to prevent d
 A table can have only one primary key | It can have multiple unique keys.
 We cannot change the value of a primary key in a table | We can change the value of the unique key
 
+## UNION
+UNION operator allows you to combine two or more result sets of queries into a single result set.
+
+To combine result set of two or more queries using the UNION operator, these are the basic rules that you must follow:
+
+* First, the number and the orders of columns that appear in all SELECT statements must be the same.
+* Second, the data types of columns must be the same or compatible.
+
+By default, the UNION operator removes duplicate rows even if you don’t specify the DISTINCT operator explicitly.
+
+## UNION ALL
+If you use the UNION ALL explicitly, the duplicate rows, if available, remain in the result. Because UNION ALL does not need to handle duplicates, it performs faster than UNION DISTINCT.
+
+## UNION vs JOIN
+UNION | JOIN                                   
+--- | --- 
+JOIN combines data from many tables based on a matched condition between them. | SQL combines the result-set of two or more SELECT statements.
+It combines data into new columns.| It combines data into new rows
+Datatypes of corresponding columns selected from each table can be different. | Datatypes of corresponding columns selected from each table should be same.
+It may not return distinct columns. | It returns distinct rows.
+
+<p align="center">
+<img width="700" height="400" src="https://www.mysqltutorial.org/wp-content/uploads/2009/12/MySQL-UNION-vs-JOIN.png">
+</p>
+
+
 ## Difference between UNION and UNION ALL
 UNION | UNION ALL                                    
 --- | --- 
 Union extracts the rows that are being specified in the query | Union All extracts all the rows including the duplicates (repeated values) from both the queries.
 Its performance is slow because it takes time to find and then remove duplicate records | Its performance is fast because it does not eliminate the duplicate rows
+
+## Data Types in SQL
+
+<p align="center">
+<img width="700" height="400" src="https://www.mysqltutorial.org/wp-content/uploads/0211/03/MySQL-Data-Types-1024x709.jpg">
+</p>
+
 
 ##  What are constraints?
 Constraints are used to specify the rules concerning data in the table. It can be applied for single or multiple fields in an SQL table during the creation of the table or after creating using the ALTER TABLE command. The constraints are:
@@ -126,12 +173,36 @@ Having can be used without groupby clause,in aggregate function,in that case it 
 The having clause can contain aggregate functions. | 	It cannot contain aggregate functions.
 It restrict the query output by using some conditions	| It groups the output on basis of some rows or column
 
-## What are UNION, MINUS and INTERSECT commands?
-The **UNION** operator combines and returns the result-set retrieved by two or more SELECT statements.
+## What are set commands?
+**UNION** 
 
-**MINUS** The Minus Operator in SQL is used with two SELECT statements. The MINUS operator is used to subtract the result set obtained by first SELECT query from the result set obtained by second SELECT query. In simple words, we can say that MINUS operator will return only those rows which are unique in only first SELECT query and not those rows which are common to both first and second SELECT queries.
+The operator combines and returns the result-set retrieved by two or more SELECT statements.
+
+**MINUS** 
+
+The MINUS compares the results of two queries and returns distinct rows from the result set of the first query that does not appear in the result set of the second query.
+
+The basic rules for a query that uses MINUS operator are the following:
+
+* The number and order of columns in both select_list1 and select_list2 must be the same.
+* The data types of the corresponding columns in both queries must be compatible.
+
+<p align="center">
+<img width="700" height="300" src="https://www.mysqltutorial.org/wp-content/uploads/2017/07/MySQL-MINUS-Example.png">
+</p>
 
 **INTERSECT** The INTERSECT clause in SQL is used to combine two SELECT statements but the dataset returned by the INTERSECT statement will be the intersection of the data-sets of the two SELECT statements. In simple words, the INTERSECT statement will return only those rows which will be common to both of the SELECT statements.
+
+***MySQL does not support MINUS/EXCEPT and INTERSECT, the workaround is to use JOINs to achieve the same effect.***
+
+## What is the workaround solution for MINUS, INTERSECT?
+**MINUS**
+
+MySQL does not support MINUS/EXCEPT, the workaround is to use LEFT JOIN. Because MINUS/EXCEPT compares every column between Table 1 and Table 2.The where clause picks null values in Table 2, which limits to rows exist in Table 1 only.
+
+**INTERSECT**
+
+MySQL will do INTERSECT by using an inner join. You also can use sub-query with IN keyword to do INTERSECT in MySQL.
 
 ## What are the different aggregate functions?
 AVG() - Calculates the mean of a collection of values.
@@ -271,130 +342,42 @@ JOIN paintings p
 ON g.id = p.gallery_id
 GROUP BY g.city;
 
-## What is a trigger?
-Trigger: A trigger is a stored procedure in database which automatically invokes whenever a special event in the database occurs. For example, a trigger can be invoked when a row is inserted into a specified table or when certain table columns are being updated.
+## How to copy data from an existing table?
+         CREATE TABLE IF NOT EXISTS new_table LIKE existing_table;
+         SELECT * 
+         FROM existing_table
+         WHERE condition;
+ 
+ Suppose, we want to copy not only the data but also all database objects associated with the offices table, we use the following statements:
+ 
+         CREATE TABLE new_table LIKE existing_table;
 
-**Syntax:**
-```
-create trigger [trigger_name] 
-[before | after]  
-{insert | update | delete}  
-on [table_name]  
-[for each row]  
-[trigger_body] 
-```
+         INSERT new_table
+         SELECT * FROM existing_table;
+         
+ ## How to copy table to another database
+ 
+         CREATE DATABASE IF NOT EXISTS new_db;
+         
+         CREATE TABLE destination_db.new_table 
+         LIKE source_db.existing_table;
 
-**Explanation of syntax:**
+         INSERT destination_db.new_table 
+         SELECT *
+         FROM source_db.existing_table;
+         
+ ## How To Map NULL Values To Other Meaningful Values
+ MySQL provides the IFNULL function that allows you to handle NULL values directly. The following is the syntax of the IFNULL function:
+ 
+         IFNULL(exp,exp_result);
+ The IFNULL function returns the value of the exp_result expression if the exp evaluates to a NULL value, otherwise, it returns the value of the exp expression.
 
-* create trigger [trigger_name]: Creates or replaces an existing trigger with the trigger_name.
-* [before | after]: This specifies when the trigger will be executed.
-* {insert | update | delete}: This specifies the DML operation.
-* on [table_name]: This specifies the name of the table associated with the trigger.
-* [for each row]: This specifies a row-level trigger, i.e., the trigger will be executed for each row being affected.
-* [trigger_body]: This provides the operation to be performed as trigger is fired
-
-
-**BEFORE and AFTER of Trigger:**
-
-BEFORE triggers run the trigger action before the triggering statement is run.
-AFTER triggers run the trigger action after the triggering statement is run.
-
-**Example:**
-Given Student Report Database, in which student marks assessment is recorded. In such schema, create a trigger so that the total and average of specified marks is automatically inserted whenever a record is insert.
-
-Here, as trigger will invoke before record is inserted so, BEFORE Tag can be used.
-
-Suppose the database Schema –
-Fields |
----|
-tid |
-name |
-subj1 |
-subj2 |
-subj3 |
-total |
-per |
-
-***SQL Trigger to problem statement.***
-```
-create trigger stud_marks 
-before INSERT 
-on 
-Student 
-for each row 
-set Student.total = Student.subj1 + Student.subj2 + Student.subj3, Student.per = Student.total * 60 / 100;
-```
-***Above SQL statement will create a trigger in the student database in which whenever subjects marks are entered, before inserting this data into the database, trigger will compute those two values and insert with the entered values. i.e.,***
-
-tid | name | subj1 | subj2 | subj3 | total | per
----| --- | --- | --- | --- | --- |--- |
-100 | ABCDE | 20 |20 | 20 | 60 |36
-
-## What is Cursor?
-Cursor is a Temporary Memory or Temporary Work Station. It is Allocated by Database Server at the Time of Performing DML(Data Manipulation Language) operations on Table by User. Cursors are used to store Database Tables. There are 2 types of Cursors: Implicit Cursors, and Explicit Cursors. These are explained as following below.
-
-**Implicit Cursors:**
-Implicit Cursors are also known as Default Cursors of SQL SERVER. These Cursors are allocated by SQL SERVER when the user performs DML operations.
-
-**Explicit Cursors :**
-Explicit Cursors are Created by Users whenever the user requires them. Explicit Cursors are used for Fetching data from Table in Row-By-Row Manner.
-
-***How to create Explicit Cursor:***
-
-1. **Declare Cursor Object.**
-
-Syntax : DECLARE cursor_name CURSOR FOR SELECT * FROM table_name
-```
-DECLARE s1 CURSOR FOR SELECT * FROM studDetails
-```
-
-2. **Open Cursor Connection.**
-
-Syntax : OPEN cursor_connection
-```
-OPEN s1
-```
-
-3. **Fetch Data from cursor.**
-
-There are total 6 methods to access data from cursor. They are as follows :
-
-* FIRST is used to fetch only the first row from cursor table.
-*LAST is used to fetch only last row from cursor table.
-* NEXT is used to fetch data in forward direction from cursor table.
-* PRIOR is used to fetch data in backward direction from cursor table.
-* ABSOLUTE n is used to fetch the exact nth row from cursor table.
-* RELATIVE n is used to fetch the data in incremental way as well as decremental way.
-
-Syntax : FETCH NEXT/FIRST/LAST/PRIOR/ABSOLUTE n/RELATIVE n FROM cursor_name
-
-```
-FETCH FIRST FROM s1
-FETCH LAST FROM s1
-FETCH NEXT FROM s1
-FETCH PRIOR FROM s1
-FETCH ABSOLUTE 7 FROM s1
-FETCH RELATIVE -2 FROM s1
-```
-
-4. **Close cursor connection.**
-
-Syntax : CLOSE cursor_name
-
-```
-CLOSE s1
-```
-
-5. **Deallocate cursor memory.**
-
-Syntax : DEALLOCATE cursor_name
-```
-DEALLOCATE s1
-```
-
-
-
-
-
-
-
+ The following query uses the IFNULL function to display NULL as unknown as follows:
+ 
+          SELECT customername, 
+             IFNULL(state,"N/A") state, 
+             country
+          FROM customers
+          ORDER BY country;
+         
+ 
