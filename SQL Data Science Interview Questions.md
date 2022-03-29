@@ -195,14 +195,23 @@ The basic rules for a query that uses MINUS operator are the following:
 
 ***MySQL does not support MINUS/EXCEPT and INTERSECT, the workaround is to use JOINs to achieve the same effect.***
 
-## What is the workaround solution for MINUS, INTERSECT?
+## How to emulate MINUS, INTERSECT?
 **MINUS**
 
 MySQL does not support MINUS/EXCEPT, the workaround is to use LEFT JOIN. Because MINUS/EXCEPT compares every column between Table 1 and Table 2.The where clause picks null values in Table 2, which limits to rows exist in Table 1 only.
 
 **INTERSECT**
 
-MySQL will do INTERSECT by using an inner join. You also can use sub-query with IN keyword to do INTERSECT in MySQL.
+1) Emulate INTERSECT using DISTINCT and INNER JOIN clause
+
+ * The INNER JOIN clause returns rows from both left and right tables.
+* The DISTINCT operator removes the duplicate rows.
+
+2) Emulate INTERSECT using IN and subquery
+
+* The subquery returns the first result set.
+* The outer query uses the IN operator to select only values that exist in the first result set. The DISTINCT operator ensures that only distinct values are selected.
+
 
 ## What are the different aggregate functions?
 AVG() - Calculates the mean of a collection of values.
@@ -262,9 +271,87 @@ A view in SQL is a virtual table based on the result-set of an SQL statement. A 
 
 A VIEW does not require any storage in a database because it does not exist physically. In a VIEW, we can also control user security for accessing the data from the database tables. We can allow users to get the data from the VIEW, and the user does not require permission for each table or column to fetch data.
 
+Consequently, a view can limit the degree of exposure of the underlying tables to the outer world: a given user may have permission to query the view, while denied access to the rest of the base table.
+
+      CREATE VIEW view_name AS
+      SELECT column1, column2.....
+      FROM table_name
+      WHERE condition;
+
 <p align="center">
 <img width="400" height="400" src="https://s3.ap-south-1.amazonaws.com/myinterviewtrainer-domestic/public_assets/assets/000/001/017/original/SQL_View.jpg?1631025207">
 </p>
+
+## What are indexes
+An index is a schema object. It is used by the server to speed up the retrieval of rows by using a pointer.
+
+It can reduce disk I/O(input/output) by using a rapid path access method to locate data quickly. An index helps to speed up select queries and where clauses, but it slows down data input, with the update and the insert statements. Indexes can be created or dropped with no effect on the data.
+
+For example, if you want to reference all pages in a book that discusses a certain topic, you first refer to the index, which lists all the topics alphabetically and is then referred to one or more specific page numbers. 
+
+Syntax:
+
+     CREATE INDEX index
+     ON TABLE column;
+     
+For multiple columns:
+
+     CREATE INDEX index
+     ON TABLE (column1, column2,.....);
+     
+***Unique Indexes:***
+Unique indexes are used for the maintenance of the integrity of the data present in the table as well as for the fast performance, it does not allow multiple values to enter into the table. 
+
+     CREATE UNIQUE INDEX index
+     ON TABLE column;
+     
+***When should indexes be created:***
+ 
+* A column contains a wide range of values.
+* A column does not contain a large number of null values.
+* One or more columns are frequently used together in a where clause or a join condition.
+
+***When should indexes be avoided:***
+ 
+* The table is small
+* The columns are not often used as a condition in the query
+* The column is updated frequently
+
+## What are stored procedures?
+The stored procedure is a prepared SQL query that you can save so that the query can be reused over and over again. So, if the user has an SQL query that you write over and over again, keep it as a stored procedure and execute it. Users can also pass parameters to a stored procedure so that the stored procedure can act based on the parameter value that is given.
+
+       CREATE or REPLACE PROCEDURE name(parameters)
+       IS
+       variables;
+       BEGIN
+       //statements;
+       END;
+       
+ For eg:
+ 
+       CREATE PROCEDURE GetCustomers()
+       BEGIN
+	SELECT 
+		customerName, 
+		city, 
+		state, 
+		postalCode, 
+		country
+	FROM
+		customers
+	ORDER BY customerName;    
+       END;
+       
+In this example, we have just created a stored procedure with the name GetCustomers(). Once you save the stored procedure, you can invoke it by using the CALL statement:
+
+        CALL GetCustomers();
+        
+The first time you invoke a stored procedure, MySQL looks up for the name in the database catalog, compiles the stored procedure’s code, place it in a memory area known as a cache, and execute the stored procedure.
+
+If you invoke the same stored procedure in the same session again, MySQL just executes the stored procedure from the cache without having to recompile it.
+
+A stored procedure can have parameters so you can pass values to it and get the result back. For example, you can have a stored procedure that returns customers by country and city. In this case, the country and city are parameters of the stored procedure.
+
 
 ## What is a subquery? what are the types?
 A subquery, or nested query, is a query placed within another SQL query. 
