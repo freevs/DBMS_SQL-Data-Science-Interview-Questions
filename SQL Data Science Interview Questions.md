@@ -30,7 +30,7 @@ A SQL Join statement is used to combine data or rows from two or more tables bas
 
 **FULL JOIN:** Returns all records when there is a match in either left or right table
 
-**CARTESIAN/CROSS JOIN:** The result set will include all rows from both tables, where each row is the combination of the row in the first table with the row in the second table. In general, if each table has n and m rows respectively, the result set will have nxm rows.
+**CARTESIAN/CROSS JOIN:** The result set will include all rows from both tables, where each row from first table joins with all the rows from another table.In general, if each table has n and m rows respectively, the result set will have nxm rows.
 
 *If you add a WHERE clause, in case table t1 and t2 has a relationship, the CROSS JOIN works like the INNER JOIN clause as shown in the following query:*
 
