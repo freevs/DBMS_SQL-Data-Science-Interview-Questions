@@ -166,7 +166,7 @@ WHERE Clause is used before GROUP BY Clause |	HAVING Clause is used after GROUP 
 WHERE Clause is used with single row function like UPPER, LOWER etc.| HAVING Clause is used with multiple row function like SUM, COUNT etc.
 
 ## Difference between GROUP BY vs HAVING
-GROUP BY| HAVING
+HAVING | GROUP BY
 --- | ---
 It is used for applying some extra condition to the query. | The groupby clause is used to group the data according to particular column or row.
 Having can be used without groupby clause,in aggregate function,in that case it behaves like where clause. |	groupby can be used without having clause with the select statement.
