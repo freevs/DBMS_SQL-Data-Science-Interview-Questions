@@ -102,8 +102,8 @@ By default, the UNION operator removes duplicate rows even if you don’t specif
 ## UNION ALL
 If you use the UNION ALL explicitly, the duplicate rows, if available, remain in the result. Because UNION ALL does not need to handle duplicates, it performs faster than UNION DISTINCT.
 
-## UNION vs JOIN
-UNION | JOIN                                   
+## JOIN vs UNION
+JOIN | UNION                                   
 --- | --- 
 JOIN combines data from many tables based on a matched condition between them. | SQL combines the result-set of two or more SELECT statements.
 It combines data into new columns.| It combines data into new rows
