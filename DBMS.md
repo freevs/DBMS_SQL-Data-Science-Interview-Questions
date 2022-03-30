@@ -82,13 +82,12 @@ Mainly deal with the rights, permissions, and other controls of the database sys
 **TCL**
 Transactions group a set of tasks into a single execution unit. Each transaction begins with a specific task and ends when all the tasks in the group successfully complete. If any of the tasks fail, the transaction fails. Therefore, a transaction has only two results: success or failure. 
 
-    -*COMMIT*: Commits a Transaction.
+    -*COMMIT*: This command is used to save the data permanently. 
 
-    -*ROLLBACK*: Rollbacks a transaction in case of any error occurs.
+    -*ROLLBACK*: This command is used to get the data or restore the data to the last savepoint or last committed state. If due to some reasons the data inserted,  deleted or updated is not correct, you can rollback the data to a particular savepoint or if savepoint is not done, then to the last committed state. 
 
-    -*SAVEPOINT*:Sets a savepoint within a transaction.
+    -*SAVEPOINT*:This command is used to save the data at a particular point temporarily, so that whenever needed can be rollback to that particular point. 
 
-    -*SET TRANSACTION*: Specify characteristics for the transaction.
 
 ###  What is Data Abstraction in DBMS?
 Data Abstraction refers to the process of hiding irrelevant details from the user. Example: If we want to access any mail from our Gmail then we don't know where that data is physically stored i.e is the data present in India or USA or what data model has been used to store that data? We are not concerned about these things. We are only concerned with our email. So, information like these i.e. location of data and data models are irrelevant to us and in data abstraction, we do this only. Apart from the location of data and data models, there are other factors that we don't care of. We hide the unnecessary data from the user and this process of hiding unwanted data is called Data Abstraction.
