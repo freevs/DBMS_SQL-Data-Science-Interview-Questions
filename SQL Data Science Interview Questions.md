@@ -173,6 +173,14 @@ Having can be used without groupby clause,in aggregate function,in that case it 
 The having clause can contain aggregate functions. | 	It cannot contain aggregate functions.
 It restrict the query output by using some conditions	| It groups the output on basis of some rows or column
 
+### DISTINCT VS GROUP BY
+DISTINCT is used to filter unique records out of all records in the table. It removes the duplicate rows.
+GROUP BY returns just one record for each unique value in the column specified in group by
+
+The group gives the same result as distinct when no aggregate function is present.
+
+The major difference between the DISTINCT and GROUP BY is, GROUP BY operator is meant for the aggregating or grouping rows whereas DISTINCT is just used to get distinct values.
+
 ## What are set commands?
 **UNION** 
 
