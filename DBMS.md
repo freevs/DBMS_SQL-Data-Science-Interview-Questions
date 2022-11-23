@@ -107,6 +107,16 @@ Data Abstraction refers to the process of hiding irrelevant details from the use
 ###  What is RDBMS?
 It is basically a program that allows us to create, delete, and update a relational database. Relational Database is a database system that stores and retrieves data in a tabular format organized in the form of rows and columns by maintaining data intregrity.
 
+### DBMS vs RDBMS
+DBMS|RDBMS
+---|---
+DBMS stores data as file.|RDBMS stores data in tabular form
+No relationship between data.|Data is stored in the form of tables which are related to each other.
+Normalization is not present.|Normalization is present.
+Data redundancy is common in this model.|Keys and indexes do not allow Data redundancy.
+Data fetching is slower for the large amount of data.|Data fetching is fast because of relational approach.
+The data in a DBMS is subject to low security levels with regards to data manipulation|There exists multiple levels of data security in a RDBMS.
+
 ###  Why keys are needed in DBMS?
 Tables store a lot of data in them. Tables generally extends to thousands of records stored in them, unsorted and unorganised.
 
