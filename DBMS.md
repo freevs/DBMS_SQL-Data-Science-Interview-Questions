@@ -182,7 +182,6 @@ Next comes, (student_id, name), now name of two students can be same, but their 
 
 Similarly, phone number for every student will be unique, hence again, phone can also be a key.
 
-So they all are super keys.
 
 ***Candidate Key:-*** Candidate keys are defined as the minimal set of fields which can uniquely identify each record in a table. It is an attribute or a set of attributes that can act as a Primary Key for a table to uniquely identify each record in that table. There can be more than one candidate key.
 
@@ -192,15 +191,12 @@ In our example, student_id and phone both are candidate keys.
 
 -A candiate key can never be NULL or empty. And its value should be unique.
 
--There can be more than one candidate keys for a table.
-
--A candidate key can be a combination of more than one columns(attributes).
-
 ***Primary Key::-*** It is a key that can uniquely identify each record in a table.For the table Student we can make the student_id column as the primary key.
 
 ***Foreign Key:-***  A foreign key is a key used to link two tables together. This is sometimes also called as a referencing key. A Foreign Key is a column or a combination of columns whose values match a Primary Key in a different table. The relationship between 2 tables matches the Primary Key in one of the tables with a Foreign Key in the second table.
 
-***Composite Key:-*** Key that consists of two or more attributes that uniquely identify any record in a table is called Composite key. But the attributes which together form the Composite key are not a key independentely or individually.
+***Composite Key:-*** When table don't have any column which is not capable of getting unique row then we might need more than 2 columns to get unique row. Then it's called composite key.
+Example: First Name & Last Name
 
 student_id | subject_id | marks | exam_name                                     
 --- | --- | --- | --- 
