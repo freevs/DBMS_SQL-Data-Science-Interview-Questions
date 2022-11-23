@@ -173,7 +173,7 @@ student_id | name | phone | age
 3|	Bkon |	7898756543 |	18
 4|	Ckon |	8987867898 |	19
 
-***Super Key:-***  Super Key is defined as a set of attributes within a table that can uniquely identify each record within a table. Super Key is a superset of Candidate key.
+***Super Key:-***  Super Key is defined as a set of attributes that can uniquely identify each record within a table. Super Key is a superset of Candidate key.
 
 In the table defined above super key would include student_id, (student_id, name), phone etc.
 Confused? The first one is pretty simple as student_id is unique for every row of data, hence it can be used to identity each row uniquely.
@@ -185,6 +185,8 @@ Similarly, phone number for every student will be unique, hence again, phone can
 So they all are super keys.
 
 ***Candidate Key:-*** Candidate keys are defined as the minimal set of fields which can uniquely identify each record in a table. It is an attribute or a set of attributes that can act as a Primary Key for a table to uniquely identify each record in that table. There can be more than one candidate key.
+
+A candidate key is a super key which cannot have any columns removed from it without losing the unique identification property.
 
 In our example, student_id and phone both are candidate keys.
 
