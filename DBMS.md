@@ -27,7 +27,6 @@ Organized collection of data so that it can be easily accessed and managed. You 
 ###  Differnce between DBMS and FIle System.
 Meaning | DBMS | File System 
 --- | ----- | -----
-
 Sharing of data | Due to the centralized approach, data sharing is easy | Data is distributed in many files, and it may be of different formats, so it isn't easy to share data.
 Data Redundancy and Inconsistency | Due to the centralization of the database, the problems of data redundancy and inconsistency are controlled | In this, the files and application programs are created by different programmers so that there exists a lot of duplication of data which may lead to inconsistency.
 Structure | The database structure is complex to design | The file system approach has a simple structure.
