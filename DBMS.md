@@ -33,7 +33,6 @@ Structure | The database structure is complex to design | The file system approa
 User access| Multiple users can access data at a time.|Only one user can access data at a time.
 Data Abstraction|It hides the internal details of Database|It give details of storage and representation of data
 Security Constraints|DBMS has more security mechanisms as compared to file systems.|File systems provide less security in comparison to DBMS.
-
 Examples |	Oracle, SQL Server, Sybase etc |	Cobol, C++ etc.
 
  ###  Database Languages
