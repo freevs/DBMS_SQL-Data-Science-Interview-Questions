@@ -27,14 +27,14 @@ Organized collection of data so that it can be easily accessed and managed. You 
 ###  Differnce between DBMS and FIle System.
 Meaning | DBMS | File System 
 --- | ----- | -----
-Meaning | Collection of data, user not required to write procedures | Collection of data, user has to write the procedures for many database
+
 Sharing of data | Due to the centralized approach, data sharing is easy | Data is distributed in many files, and it may be of different formats, so it isn't easy to share data.
-Data Abstraction | DBMS gives an abstract view of data that hides the details | The file system provides the detail of the data representation and storage of data.
-Recovery Mechanism | DBMS provides a crash recovery mechanism, i.e., DBMS protects the user from system failure | The file system doesn't have a crash mechanism, i.e., if the system crashes while entering some data, then the content of the file will be lost.
-Concurrency Problems | DBMS takes care of Concurrent access of data using some form of locking | In the File system, concurrent access has many problems like redirecting the file while deleting some information or updating some information.
 Data Redundancy and Inconsistency | Due to the centralization of the database, the problems of data redundancy and inconsistency are controlled | In this, the files and application programs are created by different programmers so that there exists a lot of duplication of data which may lead to inconsistency.
 Structure | The database structure is complex to design | The file system approach has a simple structure.
-Data Models | In the database approach, 3 types of data models exist:Hierarchal data models, Network data models, Relational data models | There is no concept of data models exists.
+User access| Multiple users can access data at a time.|Only one user can access data at a time.
+Data Abstraction|It hides the internal details of Database|It give details of storage and representation of data
+Security Constraints|DBMS has more security mechanisms as compared to file systems.|File systems provide less security in comparison to DBMS.
+
 Examples |	Oracle, SQL Server, Sybase etc |	Cobol, C++ etc.
 
  ###  Database Languages
