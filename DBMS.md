@@ -125,31 +125,17 @@ The Data Management tier is the bottom layer of the 3-tier architecture. It is r
 
 Example: In a customer relationship management (CRM) system, this tier would store customer details, transaction history, and other data relevant to the business.
 
+### Data Independence in DBMS
+Data independence is the capacity of a database system to allow changes at one schema level without requiring changes at the next higher level. This property is fundamental for maintaining, scaling, and evolving databases efficiently, as it separates the way data is stored from how it is accessed and viewed
+
+There are two main types:
 
 
+**Physical Data Independence**
+The capacity to change the internal schema (how data is physically stored) without requiring changes to the conceptual schema (the logical structure of the database).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**Logical Data Independence**
+The capacity to change the conceptual schema (tables, relationships, constraints) without having to alter the external schemas (user views) or application programs.
 
 
 
