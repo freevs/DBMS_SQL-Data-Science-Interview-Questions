@@ -153,6 +153,41 @@ The capacity to change the internal schema (how data is physically stored) witho
 **Logical Data Independence**
 The capacity to change the conceptual schema (tables, relationships, constraints) without having to alter the external schemas (user views) or application programs.
 
+### What Are Transactions in DBMS?
+A transaction in DBMS refers to a sequence of operations performed as a single unit of work. These operations may involve reading or writing data to the database. To maintain data integrity, DBMS ensures that each transaction adheres to the ACID properties.
+
+### ACID Properties in DBMS
+ACID stands for Atomicity, Consistency, Isolation, and Durability. These four key properties define how a transaction should be processed in a reliable and predictable manner, ensuring that the database remains consistent, even in cases of failures or concurrent accesses.
+
+**1. Atomicity: "All or Nothing"**
+Atomicity ensures that a transaction is atomic, it means that either the entire transaction completes fully or doesn't execute at all. There is no in-between state i.e. transactions do not occur partially. If a transaction has multiple operations, and one of them fails, the whole transaction is rolled back, leaving the database unchanged. This avoids partial updates that can lead to inconsistency.
+
+Commit: If the transaction is successful, the changes are permanently applied.
+
+Abort/Rollback: If the transaction fails, any changes made during the transaction are discarded.
+
+*Example:* Transferring ₹100 from Account A to Account B: ₹100 is deducted from A. ₹100 is added to B.
+If the system crashes after deducting from A but before adding to B, the transaction is undone so neither account is changed
+
+**2. Consistency: Maintaining Valid Data States**
+Consistency ensures that a database remains in a valid state before and after a transaction. It guarantees that any transaction will take the database from one consistent state to another, maintaining the rules and constraints defined for the data. In simple terms, a transaction should only take the database from one valid state to another. If a transaction violates any database rules or constraints, it should be rejected, ensuring that only consistent data exists after the transaction.
+
+*Example:* Before a transfer, the total balance is $700. After the transaction, the total balance should remain $700. If the transaction fails in the middle (like updating one account but not the other), the system should maintain its consistency by rolling back the transaction
+
+**3. Isolation: Ensuring Concurrent Transactions Don't Interfere**
+This property ensures that multiple transactions can occur concurrently without leading to the inconsistency of the database state. Transactions occur independently without interference. Changes occurring in a particular transaction will not be visible to any other transaction until that particular change in that transaction is written to memory or has been committed.
+
+*Example:* Suppose two transactions, A and B, are running at the same time on a banking database:
+
+Transaction A: Transfers ₹100 from Account X to Account Y.
+
+Transaction B: Reads the balance of Account X.
+
+**4. Durability: Persisting Changes**
+This property ensures that once the transaction has completed execution, the updates and modifications to the database are stored in and written to disk and they persist even if a system failure occurs. These updates now become permanent and are stored in non-volatile memory. In the event of a failure, the DBMS can recover the database to the state it was in after the last committed transaction, ensuring that no data is lost.
+
+*Example:* After successfully transferring money from Account A to Account B, the changes are stored on disk. Even if there is a crash immediately after the commit, the transfer details will still be intact when the system recovers, ensuring durability.
+
 
 ## RDBMS
 
