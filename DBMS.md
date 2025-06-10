@@ -92,7 +92,7 @@ Data Abstraction refers to the process of hiding irrelevant details from the use
 
 ###  Levels of Data Abstraction
 <p align="center">
-<img width="400" height="400" src="https://s3.ap-south-1.amazonaws.com/afteracademy-server-uploads/what-is-data-abstraction-in-dbms-and-what-are-its-three-levels-data-abstraction-levels-771e879679d76dea.jpg">
+<img width="400" height="400" src="https://sqlmentalist.com/wp-content/uploads/2011/12/image6.png">
 </p>
 
 **View Level**:- This level tells the application about how the data should be shown to the user. Different users will have a different view according to the authorization they have.
