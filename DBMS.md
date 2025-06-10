@@ -90,7 +90,7 @@ Transactions group a set of tasks into a single execution unit. Each transaction
 ###  What is Data Abstraction in DBMS?
 Data Abstraction refers to the process of hiding irrelevant details from the user. Example: If we want to access any mail from our Gmail then we don't know where that data is physically stored i.e is the data present in India or USA or what data model has been used to store that data? We are not concerned about these things. We are only concerned with our email. So, information like these i.e. location of data and data models are irrelevant to us and in data abstraction, we do this only. Apart from the location of data and data models, there are other factors that we don't care of. We hide the unnecessary data from the user and this process of hiding unwanted data is called Data Abstraction.
 
-###  Levels of Data Abstraction
+###  Levels of Data Abstraction / 3-Tier Schema Architecture in DBMS
 <p align="center">
 <img width="400" height="400" src="https://sqlmentalist.com/wp-content/uploads/2011/12/image6.png">
 </p>
@@ -100,6 +100,62 @@ Data Abstraction refers to the process of hiding irrelevant details from the use
 **Conceptual Level**:- This level tells how the data is actually stored and structured.Though the data is stored in the database but the structure of the tables like the student table, teacher table, books table, etc are defined here in the conceptual level or logical level. Also, how the tables are related to each other are defined here. Overall, we can say that we are creating a blueprint of the data at the conceptual level.
 
 **Physical Level**:- As the name suggests, the Physical level tells us that where the data is actually stored i.e. it tells the actual location of the data that is being stored by the user.The Database Administrators(DBA) decide that which data should be kept at which particular disk drive, how the data has to be fragmented, where it has to be stored etc. They decide if the data has to be centralized or distributed. Though we see the data in the form of tables at view level the data here is actually stored in the form of files only. It totally depends on the DBA, how he/she manages the database at the physical level.
+
+### 3-Tier Architecture in DBMS
+In DBMS, the 3-tier architecture is a client-server architecture that separates the user interface, application processing, and data management into three distinct tiers or layers
+
+1. Presentation Tier (User Interface Layer)
+2. Application Tier (Business Logic Layer)
+3. Data Management Tier (Database Layer)
+
+**Presentation Tier (User Interface Layer)**
+The presentation tier is the user interface or client layer of the application. It is responsible for presenting data to the user and receiving input from the user. This tier communicates with the Application Tier to process user requests and display relevant information. This tier can be a web browser, mobile app, or desktop application.
+It abstracts the business logic and data management complexities, making the system more user-friendly.
+
+Example: If you’re using a banking app, the presentation tier would display your account balance, allow you to make transfers, and display results based on your actions.
+
+**Application Tier ( Business Logic Layer)**
+The application tier is the middle layer of the 3-tier architecture. It acts as the intermediary between the Presentation Tier and the Data Management Tier. It is responsible for processing and managing the business logic of the application. This tier communicates with the presentation tier to receive user input and communicates with the data management tier to retrieve or store data. This tier may include application servers, web servers, or APIs.
+
+Example: If you're purchasing an item through an e-commerce platform, the Application Layer handles all the logic like verifying available stock, applying discounts, calculating taxes, and confirming your payment method.
+
+**Data Management Tier ( Database Layer)**
+The Data Management tier is the bottom layer of the 3-tier architecture. It is responsible for managing and storing data. This tier can include databases, data warehouses, or any other persistent data storage solution. The data management tier communicates with the application tier save, retrieve, or manipulate data according to the business logic.
+
+
+Example: In a customer relationship management (CRM) system, this tier would store customer details, transaction history, and other data relevant to the business.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## RDBMS
