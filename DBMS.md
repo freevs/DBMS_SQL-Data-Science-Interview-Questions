@@ -86,6 +86,22 @@ Transactions group a set of tasks into a single execution unit. Each transaction
 
     -*SAVEPOINT*:This command is used to save the data at a particular point temporarily, so that whenever needed can be rollback to that particular point. 
 
+### What is Schema
+Schema is the overall description of the database. In DBMS, the term schema refers to the architecture of the database which describes how it will appear or will be constructed. It describes the organization of data such as tables, relationships as well as constraints. It also dictates how data items in a database will be stored, arranged, and accessed.
+
+### What is Instance?
+An instance of DBMS refers to real data present in a database at some particular point in time. It refers to the content in the database in as much as it refers to the structure defined under a particular schema at a given point. 
+
+### Difference Between Schema and Instance
+Schema| Instance 
+--- | ----- 
+It is the overall description of the database |It is the collection of information stored in a database at a particular moment.
+The schema is same for the whole database|Data in instances can be changed using addition, deletion, and updation.
+Does not change Frequently| Changes Frequently.
+Affects the entire database structure | Affects only the current state of data.
+Requires significant effort and planning to change | Easily altered by performing CRUD (Create, Read, Update, Delete) operations.
+Table structures, relationships, constraints | Data entries, records in tables.
+
 
 ###  What is Data Abstraction in DBMS?
 Data Abstraction refers to the process of hiding irrelevant details from the user. Example: If we want to access any mail from our Gmail then we don't know where that data is physically stored i.e is the data present in India or USA or what data model has been used to store that data? We are not concerned about these things. We are only concerned with our email. So, information like these i.e. location of data and data models are irrelevant to us and in data abstraction, we do this only. Apart from the location of data and data models, there are other factors that we don't care of. We hide the unnecessary data from the user and this process of hiding unwanted data is called Data Abstraction.
@@ -136,12 +152,6 @@ The capacity to change the internal schema (how data is physically stored) witho
 
 **Logical Data Independence**
 The capacity to change the conceptual schema (tables, relationships, constraints) without having to alter the external schemas (user views) or application programs.
-
-
-
-
-
-
 
 
 ## RDBMS
